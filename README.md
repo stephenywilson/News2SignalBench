@@ -46,7 +46,14 @@ It is also designed to naturally surface where models fail: on neutral cases (wh
 
 ## Quick Start
 
-From the repository root:
+Clone the repository:
+
+```bash
+git clone https://github.com/stephenywilson/News2SignalBench
+cd News2SignalBench
+```
+
+Create a virtual environment and install locally:
 
 ```bash
 python -m venv .venv
@@ -245,16 +252,16 @@ This illustrates a key insight: event type recognition (what kind of news is thi
 
 ---
 
-## Roadmap
+## Future Work
 
-| Version | Planned |
-|---------|---------|
-| v0.1 | Demo dataset (40 rows), evaluator, schema, baseline predictions ✅ |
-| v0.1.1 | Balanced dataset (10/10/10/10), simple baseline, oracle sanity check, `--stats` flag ✅ |
-| v0.2 | Larger labeled dataset, additional event types |
-| v0.3 | Reasoning quality rubric, partial-credit metrics |
-| v0.4 | Multi-asset labeling, cross-asset impact scoring |
-| v1.0 | Leaderboard integration, community submissions |
+News2Signal Bench v0.1.1 is a framework demonstration release. Future versions may explore:
+
+- Larger synthetic and human-reviewed datasets
+- More examples per event type and asset type
+- Partial-credit scoring for adjacent time horizons
+- A clearer reasoning-quality rubric
+- Multi-asset and cross-asset impact labels
+- Optional leaderboard or community-submission workflow
 
 ---
 
