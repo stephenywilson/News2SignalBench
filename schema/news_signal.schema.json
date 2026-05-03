@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/catalayer/News2SignalBench/schema/news_signal.schema.json",
+  "title": "News2Signal Dataset Row",
+  "description": "Schema for a single labeled row in the News2Signal benchmark dataset.",
+  "type": "object",
+  "required": [
+    "id",
+    "headline",
+    "summary",
+    "asset",
+    "asset_type",
+    "sector",
+    "event_type",
+    "expected_direction",
+    "time_horizon",
+    "confidence_label",
+    "reasoning",
+    "not_financial_advice"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this example.",
+      "examples": ["demo-0001"]
+    },
+    "headline": {
+      "type": "string",
+      "description": "Synthetic or paraphrased news headline. Must not be copied from real news articles."
+    },
+    "summary": {
+      "type": "string",
+      "description": "Brief synthetic summary of the news item (2-4 sentences). Must not reproduce real copyrighted content."
+    },
+    "asset": {
+      "type": "string",
+      "description": "Primary asset ticker or identifier most directly affected by this news.",
+      "examples": ["SPY", "NVDA", "BTC", "EURUSD", "USO", "TLT"]
+    },
+    "asset_type": {
+      "type": "string",
+      "description": "Category of the primary asset.",
+      "enum": [
+        "equity",
+        "equity_index",
+        "bond",
+        "fx",
+        "commodity",
+        "crypto",
+        "sector_etf",
+        "macro_proxy"
+      ]
+    },
+    "sector": {
+      "type": "string",
+      "description": "Sector or thematic area most relevant to this news item.",
+      "examples": ["macro", "technology", "financials", "energy", "healthcare", "consumer_discretionary"]
+    },
+    "event_type": {
+      "type": "string",
+      "description": "The primary type of market-moving event described in the news.",
+      "enum": [
+        "central_bank",
+        "inflation",
+        "earnings",
+        "guidance",
+        "regulatory",
+        "geopolitical",
+        "supply_chain",
+        "labor_market",
+        "merger_acquisition",
+        "product_launch",
+        "credit_risk",
+        "commodity",
+        "crypto_policy",
+        "housing",
+        "consumer_demand",
+        "fiscal_policy"
+      ]
+    },
+    "expected_direction": {
+      "type": "string",
+      "description": "Expected directional market impact on the primary asset.",
+      "enum": ["bullish", "bearish", "neutral", "mixed"]
+    },
+    "time_horizon": {
+      "type": "string",
+      "description": "Expected time horizon over which the directional signal is most applicable.",
+      "enum": ["intraday", "short_term", "medium_term", "long_term"]
+    },
+    "confidence_label": {
+      "type": "string",
+      "description": "Human labeler confidence in the direction and horizon assignment.",
+      "enum": ["low", "medium", "high"]
+    },
+    "reasoning": {
+      "type": "string",
+      "description": "Explanation of why this direction and horizon were assigned. Should reference the specific news content and causal mechanism."
+    },
+    "not_financial_advice": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must always be true. This dataset is for research and evaluation only, not trading advice."
+    }
+  }
+}
