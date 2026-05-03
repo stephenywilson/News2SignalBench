@@ -6,6 +6,8 @@ News2Signal Bench is an open benchmark for evaluating whether AI models can unde
 
 It is built for research, model evaluation, and financial news understanding — not trading execution.
 
+![News2Signal Bench workflow](docs/assets/news2signal-workflow.svg)
+
 ---
 
 ## What is News2Signal Bench?
@@ -19,6 +21,28 @@ Financial news reasoning requires more than summarization. A model needs to:
 5. Explain its reasoning
 
 News2Signal Bench provides a labeled dataset, a schema, an evaluator, and reference predictions so you can measure exactly how well a model performs on this task.
+
+---
+
+## How to use this benchmark
+
+News2Signal Bench is a CLI-based benchmark and evaluation harness. It does not call model APIs by itself.
+
+To evaluate a model:
+
+1. Use `datasets/demo.jsonl` as the labeled benchmark dataset.
+2. Ask your model to produce predictions in the required JSONL format.
+3. Save those predictions as a `.jsonl` file.
+4. Run the evaluator against the dataset and prediction file.
+5. Compare the model's score against the included baselines.
+
+The included prediction files serve different purposes:
+
+- `oracle_baseline.jsonl` is a sanity check that mirrors the labels and should score 100%.
+- `simple_baseline.jsonl` is the main demo baseline and is intentionally imperfect.
+- `weak_baseline.jsonl` demonstrates common failure modes.
+
+This project is a benchmark, not a web interface. There is no UI in v0.1.1.
 
 ---
 
@@ -60,6 +84,8 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -e .
 ```
+
+From the repository root, run the following commands:
 
 Validate the demo dataset:
 

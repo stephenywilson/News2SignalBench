@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 420" width="1100" height="420">
+  <defs>
+    <style>
+      .box-fill-blue   { fill: #1a3a52; }
+      .box-fill-green  { fill: #1a3d2b; }
+      .box-fill-gray   { fill: #232b35; }
+      .box-fill-note   { fill: #3a2e10; }
+      .box-stroke-blue { stroke: #4a9eca; stroke-width: 1.5; }
+      .box-stroke-green{ stroke: #4caf7d; stroke-width: 1.5; }
+      .box-stroke-gray { stroke: #5a6a7a; stroke-width: 1.5; }
+      .box-stroke-note { stroke: #c8952a; stroke-width: 1.5; }
+      .title-blue      { fill: #7dd3f0; font-family: monospace; font-size: 15px; font-weight: bold; }
+      .title-green     { fill: #6ed49a; font-family: monospace; font-size: 15px; font-weight: bold; }
+      .title-gray      { fill: #a0b4c8; font-family: monospace; font-size: 15px; font-weight: bold; }
+      .sub-text        { fill: #8899aa; font-family: monospace; font-size: 12px; }
+      .note-text       { fill: #d4a843; font-family: monospace; font-size: 12px; font-style: italic; }
+      .arrow           { fill: #4a5a6a; }
+      .arrow-line      { stroke: #4a5a6a; stroke-width: 2; }
+      .bg              { fill: #0d1117; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="1100" height="420" rx="12"/>
+
+  <!-- ── Box 1: Dataset ── -->
+  <rect x="30" y="60" width="200" height="150" rx="8" class="box-fill-blue box-stroke-blue"/>
+  <text x="130" y="92" text-anchor="middle" class="title-blue">Dataset</text>
+  <line x1="50" y1="101" x2="210" y2="101" stroke="#4a9eca" stroke-width="0.8" opacity="0.5"/>
+  <text x="130" y="120" text-anchor="middle" class="sub-text">datasets/demo.jsonl</text>
+  <text x="130" y="139" text-anchor="middle" class="sub-text">40 labeled examples</text>
+  <text x="130" y="158" text-anchor="middle" class="sub-text">direction · event_type</text>
+  <text x="130" y="177" text-anchor="middle" class="sub-text">asset · time_horizon</text>
+  <text x="130" y="196" text-anchor="middle" class="sub-text">not_financial_advice: true</text>
+
+  <!-- ── Arrow 1→2 ── -->
+  <line x1="230" y1="135" x2="286" y2="135" class="arrow-line"/>
+  <polygon points="286,130 298,135 286,140" class="arrow"/>
+
+  <!-- ── Box 2: Predictions ── -->
+  <rect x="298" y="60" width="200" height="150" rx="8" class="box-fill-gray box-stroke-gray"/>
+  <text x="398" y="92" text-anchor="middle" class="title-gray">Model Predictions</text>
+  <line x1="318" y1="101" x2="478" y2="101" stroke="#5a6a7a" stroke-width="0.8" opacity="0.5"/>
+  <text x="398" y="120" text-anchor="middle" class="sub-text">predictions/*.jsonl</text>
+  <text x="398" y="139" text-anchor="middle" class="sub-text">oracle / simple / weak</text>
+  <text x="398" y="158" text-anchor="middle" class="sub-text">or your own model output</text>
+  <text x="398" y="177" text-anchor="middle" class="sub-text">id · predicted_direction</text>
+  <text x="398" y="196" text-anchor="middle" class="sub-text">predicted_event_type ···</text>
+
+  <!-- ── Arrow 2→3 ── -->
+  <line x1="498" y1="135" x2="554" y2="135" class="arrow-line"/>
+  <polygon points="554,130 566,135 554,140" class="arrow"/>
+
+  <!-- ── Box 3: Evaluator ── -->
+  <rect x="566" y="60" width="200" height="150" rx="8" class="box-fill-blue box-stroke-blue"/>
+  <text x="666" y="92" text-anchor="middle" class="title-blue">Evaluator</text>
+  <line x1="586" y1="101" x2="746" y2="101" stroke="#4a9eca" stroke-width="0.8" opacity="0.5"/>
+  <text x="666" y="120" text-anchor="middle" class="sub-text">news2signal.evaluate</text>
+  <text x="666" y="139" text-anchor="middle" class="sub-text">news2signal.validate</text>
+  <text x="666" y="158" text-anchor="middle" class="sub-text">--dataset  --predictions</text>
+  <text x="666" y="177" text-anchor="middle" class="sub-text">--stats  --output</text>
+  <text x="666" y="196" text-anchor="middle" class="sub-text">local · no API calls</text>
+
+  <!-- ── Arrow 3→4 ── -->
+  <line x1="766" y1="135" x2="822" y2="135" class="arrow-line"/>
+  <polygon points="822,130 834,135 822,140" class="arrow"/>
+
+  <!-- ── Box 4: Report ── -->
+  <rect x="834" y="60" width="232" height="150" rx="8" class="box-fill-green box-stroke-green"/>
+  <text x="950" y="92" text-anchor="middle" class="title-green">Metrics Report</text>
+  <line x1="854" y1="101" x2="1046" y2="101" stroke="#4caf7d" stroke-width="0.8" opacity="0.5"/>
+  <text x="950" y="120" text-anchor="middle" class="sub-text">direction accuracy</text>
+  <text x="950" y="139" text-anchor="middle" class="sub-text">event type accuracy</text>
+  <text x="950" y="158" text-anchor="middle" class="sub-text">asset match · time horizon</text>
+  <text x="950" y="177" text-anchor="middle" class="sub-text">exact row match</text>
+  <text x="950" y="196" text-anchor="middle" class="sub-text">avg reasoning score</text>
+
+  <!-- ── Step labels ── -->
+  <text x="130"  y="48" text-anchor="middle" class="sub-text">① labeled dataset</text>
+  <text x="398"  y="48" text-anchor="middle" class="sub-text">② model output</text>
+  <text x="666"  y="48" text-anchor="middle" class="sub-text">③ evaluate</text>
+  <text x="950"  y="48" text-anchor="middle" class="sub-text">④ scores</text>
+
+  <!-- ── Divider line ── -->
+  <line x1="30" y1="260" x2="1070" y2="260" stroke="#2a3a4a" stroke-width="1"/>
+
+  <!-- ── CLI examples ── -->
+  <text x="30" y="292" class="sub-text" font-size="11">Validate dataset</text>
+  <rect x="30" y="302" width="335" height="32" rx="4" fill="#161c24" stroke="#2a3a4a" stroke-width="1"/>
+  <text x="44" y="323" class="sub-text" font-family="monospace" font-size="11" fill="#c0d0e0">python -m news2signal.validate --dataset datasets/demo.jsonl --stats</text>
+
+  <text x="390" y="292" class="sub-text" font-size="11">Run evaluator</text>
+  <rect x="390" y="302" width="420" height="32" rx="4" fill="#161c24" stroke="#2a3a4a" stroke-width="1"/>
+  <text x="404" y="323" class="sub-text" font-family="monospace" font-size="11" fill="#c0d0e0">python -m news2signal.evaluate --dataset datasets/demo.jsonl --predictions &lt;file&gt;</text>
+
+  <text x="835" y="292" class="sub-text" font-size="11">Write JSON report</text>
+  <rect x="835" y="302" width="235" height="32" rx="4" fill="#161c24" stroke="#2a3a4a" stroke-width="1"/>
+  <text x="849" y="323" class="sub-text" font-family="monospace" font-size="11" fill="#c0d0e0">... --output reports/report.json</text>
+
+  <!-- ── Research note banner ── -->
+  <rect x="30" y="358" width="1040" height="40" rx="6" class="box-fill-note box-stroke-note"/>
+  <text x="550" y="384" text-anchor="middle" class="note-text">Research benchmark only · Not financial advice · No trading execution · Demo dataset is synthetic · No live signals</text>
+</svg>
